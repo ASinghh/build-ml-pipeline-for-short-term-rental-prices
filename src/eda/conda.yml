@@ -11,3 +11,5 @@ dependencies:
   - pyarrow=2.0
   - pip:
       - wandb==0.10.31
+      - notebook
+      - Jinja2==3.0.3
