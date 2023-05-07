@@ -42,6 +42,10 @@ def go(args):
     df = df[idx].copy()
     df['last_review'] = pd.to_datetime(df['last_review'])
 
+    # Removing non NYC data points
+    idx = df['longitude'].between(-74.25, -73.50) & df['latitude'].between(40.5, 41.2)
+    df = df[idx].copy()
+
     # Save dataframe as clean_sample.csv
     logger.info(f'Saving Dataframe {args.output_artifact}')
     df.to_csv('clean_sample.csv', index=False)
